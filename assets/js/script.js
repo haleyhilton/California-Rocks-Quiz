@@ -1,4 +1,5 @@
 const container = document.getElementById("container");
+const header = document.getElementsByClassName("header")
 const start = document.getElementById("start");
 const startBtn = document.getElementsByClassName("startBtn")
 const quiz = document.getElementById("quiz");
