@@ -12,33 +12,35 @@
 <body>
     <!-- Start quiz container -->
     <header class="header">
-
+        <!-- Timer -->
+        <div id="timer">
+            <div id="counter"></div>
+    
+        </div>
+        
     </header>
     <div class="container">
-        <h2 class="header">Coding Quiz Challenge</h2>
-        <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
-        <button id="start" class="startBtn">Start Quiz</button>
-    </div>  
-    <div class="container">
-        <h2 id="question">Question</h2>
-        <div id="question"></div>
-        <button class="answerBtn">Answer 1</button>
-        <button class="answerBtn">Answer 2</button>
-        <button class="answerBtn">Answer 3</button>
-        <button class="answerBtn">Answer 4</button>
-    
-    </div>
+        <div class="startContainer">
+            <h2 class="startHeader">Coding Quiz Challenge</h2>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
+            <button id="start" class="startBtn">Start Quiz</button>
+        </div> 
+        <div class="questionContainer hide">
+            <h2 id="question">Question</h2>
+            <div class="answerContainer"></div>
+            <button class="answerBtn">Answer 1</button>
+            <button class="answerBtn">Answer 2</button>
+            <button class="answerBtn">Answer 3</button>
+            <button class="answerBtn">Answer 4</button>
+            
+            </div>
+    </div>    
 
     <!-- Results & high score storage -->
-    <div id="highScoreContainer">
+    <div class="highScoreContainer">
         <button id="submit">Submit</button>
         <div id="results"></div>
         <div id="highScore"></div>
-    </div>
-    <!-- Timer -->
-    <div id="timer">
-        <div id="counter"></div>
-
     </div>
 
 

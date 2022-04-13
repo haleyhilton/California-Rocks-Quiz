@@ -21,7 +21,7 @@
     flex-direction: column;
 }
 
-p{
+/*p{
     padding: 5%;
     margin: 0;
     display: flex;
@@ -29,9 +29,20 @@ p{
     justify-content: center;
     width: 400px;
 }
-
+*/
 .header{
+    display: flex;
+    justify-content: flex-end;
+}
 
+.startContainer{
+    padding: 5%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    flex-direction: column;
 }
 
 #start{
@@ -46,6 +57,11 @@ p{
 
 }
 
+.questionContainer{
+    
+}
+
+
 .answerBtn {
     display: grid;
     padding: 15px 20px;
@@ -55,16 +71,16 @@ p{
     border-radius: 10px;
 }
 
-#highScoreContainer {
-
+.highScoreContainer {
+    
 }
 
 #submit {
-
+    
 }
 
 #results {
-
+    
 }
 
 #highScore {
@@ -72,9 +88,17 @@ p{
 }
 
 #timer {
-
+    padding: 20px 40px;
+    margin: 5px;
+    font-size: larger;
+    border: 1px solid;
+    border-radius: 10px;
 }
 
 #counter {
+    
+}
 
+.hide {
+    display: none;
 }
