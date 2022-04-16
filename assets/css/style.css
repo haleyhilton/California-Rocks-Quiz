@@ -45,23 +45,6 @@
     flex-direction: column;
 }
 
-#start{
-
-}
-
-.startBtn{
-
-}
-
-#question {
-
-}
-
-.questionContainer{
-    
-}
-
-
 .answerBtn {
     display: grid;
     padding: 15px 20px;
@@ -71,32 +54,14 @@
     border-radius: 10px;
 }
 
-.highScoreContainer {
-    
-}
-
-#submit {
-    
-}
-
-#results {
-    
-}
-
-#highScore {
-
-}
-
 #timer {
     padding: 20px 40px;
     margin: 5px;
     font-size: larger;
     border: 1px solid;
     border-radius: 10px;
-}
-
-#counter {
-    
+    color: hotpink;
+    font-weight: bolder;
 }
 
 .hide {

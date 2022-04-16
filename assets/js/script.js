@@ -3,18 +3,15 @@ document.querySelector("#start").addEventListener("click", startGame);
 
 const container = document.querySelector(".container");
 const startContainer = document.querySelector(".startContainer");
-//const questionContainer = document.getElementById("questionContainer");
 const header = document.querySelector(".header")
 const start = document.getElementById("start");
 const startBtn = document.querySelector(".startBtn")
 const quiz = document.getElementById("quiz");
-//const answerBtn = document.getElementById("answerBtn")
 const questionEl = document.getElementById("question");
 const choicesEl = document.getElementById("choices");
 const submitBtn = document.getElementById("submit");
 const results = document.getElementById("results");
 const highScore = document.getElementById("highScore");
-//const timer = document.getElementById("timer");
 const counter = document.getElementById("counter");
 const highScoreContainer = document.querySelector(".highScoreContainer");
 var highScoreList = document.getElementById("highScoreList")
@@ -113,7 +110,6 @@ var questionAnswerList = [
 function appendQuestionAnswer() {
     var questionAnswer = questionAnswerList[questionNum];
     console.log(questionNum)
-    //console.log(questionAnswer)
     var question = questionAnswer.question
     //console.log(question)
     var answers = questionAnswer.answers
@@ -145,17 +141,5 @@ function appendQuestionAnswer() {
     }) 
 }
 
-//multiple choice questions
-// keep track of user's answers
-//on click show results
-// if answer is correct
-// add to number of correct answers
-// display Correct!
-// if answer is wrong
-// subtract from number of correct answers
-// 
 
-
-//high score storage
-//Start button should begin the game
 //startBtn.addEventListener("click", startGame);
