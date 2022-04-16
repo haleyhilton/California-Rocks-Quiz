@@ -36,13 +36,36 @@
             </div>
     </div>    
 
-    <!-- Results & high score storage -->
-    <div class="highScoreContainer">
-        <button id="submit">Submit</button>
-        <div id="results"></div>
-        <div id="highScore"></div>
-    </div>
 
+    <container class="includeName hide">
+        <div>
+          <h1>Your score</h2>
+          <p class="finalScore"></p>
+        </div>
+        <div>
+          <p class="finalTimeScore">60</p>
+        </div>
+
+        <div>
+          <form class="form">
+            <label for="nameInitials">Your Initials:</label>
+            <input type="text" id="nameInitials" name="nameInitials" />
+          </form>
+        </div>
+    </container>
+
+    <!-- Results & high score storage -->
+
+      <container class="highScoreContainer hide">
+        <div class="center">
+          <h1>Leaderboard</h1>
+          <ul id="highScoreList"></ul>
+          <div>
+            <button class="tryAgain buttonFormat">Try Again</button>
+            <button class="clearScore buttonFormat">Clear Scores</button>
+          </div>
+        </div>
+      </container>
 
 
     <script src="./assets/js/script.js"></script>

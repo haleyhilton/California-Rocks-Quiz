@@ -17,12 +17,20 @@ const highScore = document.getElementById("highScore");
 //const timer = document.getElementById("timer");
 const counter = document.getElementById("counter");
 const highScoreContainer = document.querySelector(".highScoreContainer");
+var highScoreList = document.getElementById("highScoreList")
+var tryAgain =document.querySelector(".tryAgain")
+var clearScore =document.querySelector(".clearScore")
 var wins = localStorage.getItem("wins");
 var losses = localStorage.getItem("losses");
-//save most recent highschool 
+//save most recent highsccore
 var questionContainer = document.querySelector(".questionContainer");
 var answerBtnArray = document.querySelectorAll(".answerBtn")
 var answerContainer = document.querySelector(".answerContainer");
+var finalScore = document.querySelector(".finalScore")
+var finalTime = document.querySelector(".finalTimeScore")
+
+
+
 
 
 
@@ -41,7 +49,7 @@ function startGame() {
 //countdown timer
 var timeContainer = document.querySelector("#counter")
 
-var timeLeft = 60;
+var timeLeft = 20;
 
 function timer() {
     var timeInterval = setInterval(
@@ -51,7 +59,16 @@ function timer() {
         
         if (timeLeft === 0) {
             clearInterval(timeInterval);
+            let tryAgain = confirm("Outta time! Get outta California, you kook")
+            //trying again resets the question index to zero to start question at the beginning
+           if (tryAgain) {
+               counter.textContent = "20";
+               questionNum = 0;
+               timeLeft = 20;
+               startGame();
+            }
         }
+
     }, 1000);
 }
 
@@ -65,37 +82,40 @@ var questionNum = 0
 
 var questionAnswerList = [
     {
-        question: 'What subject is hardest?',
+        question: 'The California state bird is the _____:',
         answers: [
-            { text: "this one", correct: true },
-            { text: "the other one", correct: false },
-            { text: "the next one", correct: false },
-            { text: "all of them", correct: false  },
+            { text: "seagull", correct: false },
+            { text: "really big seagull", correct: false },
+            { text: "quail", correct: true },
+            { text: "pelican", correct: false  },
         ]
     },
     {
-        question: 'Question 2?',
+        question: 'California is home to the World Famous _____',
         answers: [
-            { text: "this one", correct: true },
-            { text: "the other one", correct: false },
-            { text: "the next one", correct: false },
-            { text: "all of them", correct: false  },
+            { text: "sticky waffles", correct: false },
+            { text: "Zoo", correct: true },
+            { text: "dry land penguins", correct: false },
+            { text: "Diamond National Park", correct: false  },
         ]
     },
     {
-        question: 'Question 3?',
+        question: 'What is the current population of California?',
         answers: [
-            { text: "this one", correct: true },
-            { text: "the other one", correct: false },
-            { text: "the next one", correct: false },
-            { text: "all of them", correct: false  },
+            { text: "39.5 million", correct: true },
+            { text: "10 million", correct: false },
+            { text: "300 million", correct: false },
+            { text: "20.5 million", correct: false  },
         ]
     }
 ]
 
 function appendQuestionAnswer() {
     var questionAnswer = questionAnswerList[questionNum];
+    console.log(questionNum)
+    //console.log(questionAnswer)
     var question = questionAnswer.question
+    //console.log(question)
     var answers = questionAnswer.answers
     questionEl.textContent = question
 //anonymous function (also can grab i)
@@ -105,11 +125,23 @@ function appendQuestionAnswer() {
         answerBtnArray[i].addEventListener("click", function(event){
             var isCorrect = event.target.dataset.correct
             console.log(isCorrect)
+            if (answer.correct === true) {
+                console.log("TRUE!")
+            }else{
+                console.log("FALSE!")
+            }
+            
             //if statement to check if they got it right or not
             questionNum++ //questionNum is equal to questionNum plus one
             //stop it if =<3
-            appendQuestionAnswer()
+            if(questionNum < questionAnswerList.length) {
+                appendQuestionAnswer()      
+            } else {
+                //what to do once you go through that length
+            }
+       
         })
+        console.log("Inside for each")
     }) 
 }
 
