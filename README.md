@@ -1,1 +1,1 @@
-# Training-Code-Quiz
+# California-Rocks-Quiz
