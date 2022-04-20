@@ -1,73 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">    
-    <title>California Cooks Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Roboto:ital,wght@0,100;0,400;0,500;0,900;1,700&display=swap"
+    rel="stylesheet">
+    <title>CALIFORNIA ROCKS QUIZ</title>
 </head>
 
 <body>
-    <!-- Start quiz container -->
-    <header class="header">
-        <!-- Timer -->
-        <div id="timer">
-            <div id="counter">20</div>
-    
-        </div>
-        
+    <header class="topContainer">
+        <ul class="high-scores"></ul>
+        <div class="counter">Time: <span class="timer">60</span></div>
     </header>
-    <div class="container">
-        <div class="startContainer">
-            <h2 class="startHeader">California Kooks Challenge</h2>
-            <p>Let's see if you can prove you're not a kook within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
-            <button id="start" class="startBtn">Start Quiz</button>
-        </div> 
-        <div class="questionContainer hide">
-            <h2 id="question">Question</h2>
-            <div class="answerContainer"></div>
-            <button class="answerBtn">Answer 1</button>
-            <button class="answerBtn">Answer 2</button>
-            <button class="answerBtn">Answer 3</button>
-            <button class="answerBtn">Answer 4</button>
-            
+
+    <div class="Welcome">California Kooks Challenge 
+      <p>Let's see if you can prove you're not a kook within the time limit. Keep in mind the incorrect answers will penalize your time (and score) by ten seconds!</p>
+  </div>    
+<div class="container">
+        <div id="questionContainer" class="hide">
+            <div class="questionClass">Question</div>
+            <div class="answer-buttons">
+                print
             </div>
-    </div>    
-
-
-    <container class="includeName hide">
-        <div>
-          <h1>Your score</h2>
-          <p class="finalScore"></p>
-        </div>
-        <div>
-          <p class="finalTimeScore">60</p>
+            <div class="yes-or-no"></div>
         </div>
 
-        <div>
-          <form class="form">
-            <label for="nameInitials">Your Initials:</label>
-            <input type="text" id="nameInitials" name="nameInitials" />
-          </form>
+
+        <div class="scoreContainer hide">
+            <div class="scoreText">You scored a <span class="score">x</span>. Enter your initials below!</div>
+            <br>
+            <br>
+            <input type="Initials" class="name-input">
+            <button class="submit">Submit</button>
+            <ul class="scoresList">
+
+                <!-- create element -->
+            </ul>
+            <button class="replay">Replay</button>
+            <button class="tryAgain hide">Try Again</button>
+
         </div>
-    </container>
 
-    <!-- Results & high score storage -->
-
-      <container class="highScoreContainer hide">
-        <div class="center">
-          <h1>Leaderboard</h1>
-          <ul id="highScoreList"></ul>
-          <div>
-            <button class="tryAgain buttonFormat">Try Again</button>
-            <button class="clearScore buttonFormat">Clear Scores</button>
-          </div>
-        </div>
-      </container>
-
-
+    </div>
+   
+    <button id="startButton">START</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

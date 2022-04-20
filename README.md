@@ -1,7 +1,7 @@
 # California-Rocks-Quiz
 
 Homework for UCSD bootcamp
-Bootcamp Live Site: https://haleyhilton.github.io/California-Rocks-Quiz/
+Quiz Live Site: https://haleyhilton.github.io/California-Rocks-Quiz/
 
 This project served to test knowledge surrounding 
 . Creating an interactive quiz 
@@ -22,8 +22,15 @@ When you get to the landing page - you are met with a quiz title, brief descript
 
 ![Quiz Landing](assets/images/Quiz-landing.png)
 
-From there you begin the quiz and can choose from an array of four answers. The timer begins to countdown in the upper right hand corner. If you run out of time, you get an alert that lets you either stop or restart the game
+From there you begin the quiz and can choose from an array of four answers. The timer begins to countdown in the upper right hand corner. If you select a wrong answer, 10 seconds will be deducted from your scoreIf you run out of time, you get an alert that lets you either stop or restart the game
+
+![Wrong-answer](assets/images/Wrong-answer.png)
+
+If you get enough questions wrong - expect to run out of time and use the OK button to try your luck again!
 
 ![Outta Time](assets/images/Outta-time.png)
 
-Once you complete the game, you're met with a highscore page where you can enter in your score and initials which then get pushed to localStorage.
+Once you complete the game, you're met with a highscore page where you can enter in your initials which then get pushed to localStorage.
+
+
+

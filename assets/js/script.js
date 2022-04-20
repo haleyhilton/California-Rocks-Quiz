@@ -1,145 +1,181 @@
-//Assignment Code + Event Listener to prompt questions when button pushed
-document.querySelector("#start").addEventListener("click", startGame);
-
-const container = document.querySelector(".container");
-const startContainer = document.querySelector(".startContainer");
-const header = document.querySelector(".header")
-const start = document.getElementById("start");
-const startBtn = document.querySelector(".startBtn")
-const quiz = document.getElementById("quiz");
-const questionEl = document.getElementById("question");
-const choicesEl = document.getElementById("choices");
-const submitBtn = document.getElementById("submit");
-const results = document.getElementById("results");
-const highScore = document.getElementById("highScore");
-const counter = document.getElementById("counter");
-const highScoreContainer = document.querySelector(".highScoreContainer");
-var highScoreList = document.getElementById("highScoreList")
+var timer = document.querySelector(".timer")
+var start = document.querySelector("#startButton")
+var questionContainer = document.querySelector("#questionContainer")
+var questionCardHead = document.querySelector(".questionClass")
+var answerGroup = document.querySelector(".answer-buttons")
+var btn1 = document.querySelector("#btn1")
+var btn2 = document.querySelector("#btn2")
+var btn3 = document.querySelector("#btn3")
+var btn4 = document.querySelector("#btn4")
+var target = btn1, btn2, btn3, btn4
+var submit = document.querySelector(".submit")
+var yesNo = document.body.querySelector('.yes-or-no')
+var nameInput = document.querySelector(".name-input")
+var scoresList = document.querySelector('.scoresList')
+var replay = document.body.querySelector(".replay")
+var list = document.createElement("div");
+var scoreContainer = document.querySelector(".scoreContainer")
+var welcome = document.querySelector('.Welcome')
+var finalScore = document.querySelector(".score")
+var box = document.querySelector('.counter')
+var initials = JSON.parse(localStorage.getItem('.score')) || []
+var scoreData = localStorage.getItem('.score')
+var currentQIndex = 0;
+var timeLeft = 60;
+var score = timeLeft
 var tryAgain =document.querySelector(".tryAgain")
-var clearScore =document.querySelector(".clearScore")
-var wins = localStorage.getItem("wins");
-var losses = localStorage.getItem("losses");
-//save most recent highsccore
-var questionContainer = document.querySelector(".questionContainer");
-var answerBtnArray = document.querySelectorAll(".answerBtn")
-var answerContainer = document.querySelector(".answerContainer");
-var finalScore = document.querySelector(".finalScore")
-var finalTime = document.querySelector(".finalTimeScore")
 
+ 
 
+start.addEventListener("click", startGame);
 
+var timeInterval;
+function time() {
 
-
-
-
-//Start button should begin the game
-function startGame() {
-        console.log("it worked")
-
-    questionContainer.classList.remove("hide");
-    startContainer.classList.add("hide")
-    timer();
-    appendQuestionAnswer()
-}
-
-
-//countdown timer
-var timeContainer = document.querySelector("#counter")
-
-var timeLeft = 20;
-
-function timer() {
-    var timeInterval = setInterval(
-        function () {
+    timeInterval = setInterval(function () {
         timeLeft--;
-        timeContainer.textContent = timeLeft;
-        
-        if (timeLeft === 0) {
+        timer.textContent = timeLeft;
+
+
+        if (timeLeft <= 0) {
             clearInterval(timeInterval);
             let tryAgain = confirm("Outta time! Get outta California, you kook")
-            //trying again resets the question index to zero to start question at the beginning
-           if (tryAgain) {
-               counter.textContent = "20";
-               questionNum = 0;
-               timeLeft = 20;
-               startGame();
-            }
+        if (tryAgain) {
+            timer.textContent = "60"
+            timeLeft = 60;
+            currentQIndex = 0;
+            startGame()
+        }
         }
 
+        if (currentQIndex > questionAndAnswer.length - 1) {
+            clearInterval(timeInterval)
+        }
     }, 1000);
 }
 
-
-// delete questionContainer['hide'];
-//   displayQuestionAnswer();
-//}
-
-var questionNum = 0
-
-
-var questionAnswerList = [
-    {
-        question: 'The California state bird is the _____:',
-        answers: [
-            { text: "seagull", correct: false },
-            { text: "really big seagull", correct: false },
-            { text: "quail", correct: true },
-            { text: "pelican", correct: false  },
-        ]
-    },
-    {
-        question: 'California is home to the World Famous _____',
-        answers: [
-            { text: "sticky waffles", correct: false },
-            { text: "Zoo", correct: true },
-            { text: "dry land penguins", correct: false },
-            { text: "Diamond National Park", correct: false  },
-        ]
-    },
-    {
-        question: 'What is the current population of California?',
-        answers: [
-            { text: "39.5 million", correct: true },
-            { text: "10 million", correct: false },
-            { text: "300 million", correct: false },
-            { text: "20.5 million", correct: false  },
-        ]
-    }
-]
-
-function appendQuestionAnswer() {
-    var questionAnswer = questionAnswerList[questionNum];
-    console.log(questionNum)
-    var question = questionAnswer.question
-    //console.log(question)
-    var answers = questionAnswer.answers
-    questionEl.textContent = question
-//anonymous function (also can grab i)
-    answers.forEach(function(answer, i) {
-        answerBtnArray[i].textContent = answer.text
-        answerBtnArray[i].dataset.correct = answer.correct
-        answerBtnArray[i].addEventListener("click", function(event){
-            var isCorrect = event.target.dataset.correct
-            console.log(isCorrect)
-            if (answer.correct === true) {
-                console.log("TRUE!")
-            }else{
-                console.log("FALSE!")
-            }
-            
-            //if statement to check if they got it right or not
-            questionNum++ //questionNum is equal to questionNum plus one
-            //stop it if =<3
-            if(questionNum < questionAnswerList.length) {
-                appendQuestionAnswer()      
-            } else {
-                //what to do once you go through that length
-            }
-       
-        })
-        console.log("Inside for each")
-    }) 
+function startGame() {
+    time();
+    questionContainer.classList.remove('hide');
+    welcome.style.display = 'none';
+    start.classList.add("hide");
+    displayQuestionAnswer();
 }
 
 
-//startBtn.addEventListener("click", startGame);
+var questionAndAnswer = [
+    {
+        questions: 'What is the California state bird?',
+        answers: ["Quail", "Eagle", "Penguin", "Raven",
+        ],
+        accuracy: 0
+    },
+    {
+        questions: 'Dont forget to visit the World Famous San Diego ______',
+        answers: ["WWII Museum", "Zoo", "Aquarium", "Space Needle"
+        ],
+        accuracy: 1
+    },
+    {
+        questions: 'Is it always sunny in California?',
+        answers: ["Never been", "I mean, sort of", "365 days of perfection", "wouldn't you like to know"
+    ],
+        accuracy: 3
+
+    },
+    {
+        questions: 'Why did California originally become popular?',
+        answers: ["The Gold Rush", "Palm trees", "Access to salmon", "Car production"
+        ],
+        accuracy: 0
+    },
+    {
+        questions: 'What is the best state?',
+        answers: ["California", "Florida", "CALIFORNIA IN CAPS", "Pick the third one"
+        ],
+        accuracy: 2
+    },
+]
+
+
+function displayQuestionAnswer() {
+    console.log(currentQIndex)
+
+    if (currentQIndex > questionAndAnswer.length - 1) {
+
+        return clearButton()
+    }
+    var question = questionAndAnswer[currentQIndex]
+    questionCardHead.textContent = question.questions
+    buttonArray = []
+    answerGroup.innerHTML = ""
+
+
+    for (i = 0; i < questionAndAnswer[currentQIndex].answers.length; i++) {
+        var button = document.createElement("button")
+        button.textContent = questionAndAnswer[currentQIndex].answers[i]
+        button.setAttribute("data-index", i)
+
+        buttonArray.push(button)
+        console.log(buttonArray[i])
+        answerGroup.appendChild(buttonArray[i])
+    }
+};
+
+function clearButton() {
+    answerGroup.innerHTML = ""
+    scoreContainer.classList.remove('hide')
+    questionContainer.classList.add('hide')
+    welcome.style.display = "none"
+    var finalScore = document.querySelector(".score")
+    finalScore.textContent = timeLeft
+    clearInterval(timeInterval)
+};
+
+
+answerGroup.addEventListener('click', function (event) {
+    console.log(parseInt(event.target.getAttribute("data-index")) === questionAndAnswer[currentQIndex].accuracy)
+    if (parseInt(event.target.getAttribute("data-index")) === questionAndAnswer[currentQIndex].accuracy) {
+        currentQIndex++
+        displayQuestionAnswer();
+        console.log("Correct")
+        yesNo.textContent = "Correct!"
+    }
+    else {
+        timeLeft -= 15
+        currentQIndex++
+        displayQuestionAnswer();
+        console.log("incorrect")
+        yesNo.textContent = "Oh no! Are you a kook?"
+    }
+})
+
+submit.addEventListener("click", function (scoreData) {
+    var userScore = [
+        {
+            initials: nameInput.value,
+            score: timeLeft
+        },
+    ]
+
+    var data = JSON.parse(localStorage.getItem("score")) || [];
+
+    localStorage.setItem('score', JSON.stringify([...data, ...userScore]))
+    for (i = 0; i < userScore.length; i++) {
+        var list = document.createElement("li");
+        list.textContent = userScore[i].initials + ": " + userScore[i].score;
+        list.setAttribute('score', i);
+        scoresList.appendChild(list);
+    }
+
+})
+
+// Reset the game and play again
+replay.addEventListener("click", startGame)
+function reset() {
+    startGame();
+    timeLeft = 60
+    scoreContainer.classList.add('hide')
+    currentQIndex = 0
+}
+

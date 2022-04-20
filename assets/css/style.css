@@ -1,69 +1,142 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+:root{
+--green: rgb(29, 228, 29);
+--red: red;
+--hotPink: rgb(230, 90, 113);
+
 }
 
-:root { 
---neutral: white;
---wrong: red;
---correct: rgb(119, 236, 119);
+@font-face {
+    font-family: 'headTurner';
+    src: url('../fonts/Head-Turner.woff') format('woff');
+    font-weight: normal;
 }
 
-.container{
-    background-color: var(--neutral);
-    padding: 0;
-    margin: 0;
+body {
+    font-family: "headTurner", sans-serif;
+}
+
+ul {
+	list-style: none;
+}
+
+
+.counter {
+    padding: 20px;
+    font-size: large;
+    border: solid 1px;
+    color: var(--hotPink);
+    border-radius: 50px;
+}
+
+
+.topContainer {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+.container {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+
 }
 
-/*p{
-    padding: 5%;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-}
-*/
-.header{
-    display: flex;
-    justify-content: flex-end;
+.questionClass {
+    padding: 20px;
+    font-size: x-large;
 }
 
-.startContainer{
-    padding: 5%;
-    margin: 0;
+.answer-buttons {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
     flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 20px;
 }
 
-.answerBtn {
-    display: grid;
-    padding: 15px 20px;
-    margin: 5px;
+button{
     font-size: larger;
-    border: 1px solid;
-    border-radius: 10px;
+    padding: 10px 50px;
+    border-radius: 50px;
 }
 
-#timer {
-    padding: 20px 40px;
-    margin: 5px;
-    font-size: larger;
-    border: 1px solid;
-    border-radius: 10px;
-    color: hotpink;
-    font-weight: bolder;
+.yes-or-no{
+    font-size: medium;
+    font-style: italic;
+    margin: 50px 5px;
+    float: right;
+;}
+
+
+.Welcome {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    padding: 20px;
+    align-items: center;
+    line-height: 25px;
 }
 
 .hide {
     display: none;
+}
+
+.scoreContainer{
+    line-height: 30px;
+}
+
+.initial-input{
+    float: right;
+    padding: 20px;
+    border: dotted 5px var(--hotPink);
+}
+
+.submit{
+    padding: 10px;
+    margin: 20px;
+    background-color: var(--hotPink);
+    float: left;
+    color: white;
+    border-radius: 50px;
+}
+
+.replay{
+    padding: 10px;
+    margin: 20px;
+    background-color: var(--hotPink);
+    color: white;
+    border-radius: 50px;
+}
+
+.scoreText{
+    font-size: larger;
+}
+
+.finalscore{
+    font-size: larger;
+}
+
+.scoresList{
+    font-size: large;
+    padding: 20%;
+}
+
+p{
+    display: flex;
+    padding: 5% 25%;
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#startButton {
+    padding: 20px;
+    float: right;
+    background-color: var(--hotPink);
+    border-radius: 50px;
+    color: white;
 }
