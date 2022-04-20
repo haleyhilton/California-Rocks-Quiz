@@ -142,7 +142,7 @@ answerGroup.addEventListener('click', function (event) {
         yesNo.textContent = "Correct!"
     }
     else {
-        timeLeft -= 15
+        timeLeft -= 10
         currentQIndex++
         displayQuestionAnswer();
         console.log("incorrect")
