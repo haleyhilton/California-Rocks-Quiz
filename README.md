@@ -32,5 +32,5 @@ If you get enough questions wrong - expect to run out of time and use the OK but
 
 Once you complete the game, you're met with a highscore page where you can enter in your initials which then get pushed to localStorage.
 
-Final commit was possible through using additional code and only for my continued learning. Please refer to the prior commit for grading purposes.
+Final commit was possible through borrowing additional code and only added for my continued learning and development. Please refer to the prior commit for grading purposes.
 
